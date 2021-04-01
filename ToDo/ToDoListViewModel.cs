@@ -27,5 +27,14 @@ namespace ToDo
             TodoItems.Add(new TodoItem(NewToDoInputValue, false));
         }
 
+        public ICommand RemoveToDoCommand => new Command(RemoveToDoItem);
+
+        void RemoveToDoItem(object o)
+        {
+            TodoItem itemToBeRemoved = o as TodoItem;
+            TodoItems.Remove(itemToBeRemoved);
+            Console.WriteLine("Removed");
+        }
+
     }
 }
