@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ToDo"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="ToDo.MainPage">
 
     <ContentPage.BindingContext>
@@ -9,7 +10,8 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Label Text="ToDo App" FontSize="Large"/>
+        <Label Text="ToDo App" FontSize="Large" HorizontalTextAlignment="Center" BackgroundColor="Black"
+               TextColor="White"/>
         
         <Entry 
             Text="{Binding NewToDoInputValue}"
@@ -24,6 +26,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Padding="20, 0">
+                            <input:CheckBox IsChecked="{Binding Complete}"/>
                             <Label Text="{Binding TodoText}" FontSize="Large"/>
                             <ImageButton Source="delete.png" Scale="0.5" Command="{Binding Path=BindingContext.RemoveToDoCommand, Source={x:Reference ToDoList}}" CommandParameter="{Binding .}"/>
                         </FlexLayout>
