@@ -10,10 +10,12 @@
 
     <StackLayout>
         <Label Text="ToDo App" FontSize="Large"/>
+        
         <Entry 
-            Text=""
+            Text="{Binding NewToDoInputValue}"
             x:Name="InputField"
             Placeholder="Enter a ToDo" 
+            ReturnCommand="{Binding AddToDoCommand}"
         />
 
         <ListView x:Name="ToDoList" ItemsSource="{Binding TodoItems}">

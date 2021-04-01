@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace ToDo
 {
@@ -10,11 +12,20 @@ namespace ToDo
 
         public ObservableCollection<TodoItem> TodoItems { get; set; }
 
+        public string NewToDoInputValue { get; set; }
         public ToDoListViewModel()
         {
             TodoItems = new ObservableCollection<TodoItem>();
 
             TodoItems.Add(new TodoItem("First Todo", true));
         }
+
+        public ICommand AddToDoCommand => new Command(AddToDoItem);
+
+        void AddToDoItem()
+        {
+            TodoItems.Add(new TodoItem(NewToDoInputValue, false));
+        }
+
     }
 }
