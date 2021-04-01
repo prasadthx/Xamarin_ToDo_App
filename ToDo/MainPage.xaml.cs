@@ -15,19 +15,5 @@ namespace ToDo
             InitializeComponent();
         }
 
-        public void TextChangeHandler(object sender, TextChangedEventArgs args)
-        {
-            Console.WriteLine(args.NewTextValue);
-        }
-
-        private void EntryCompleted(object sender, EventArgs e)
-        {
-            Console.WriteLine("Enter pressed");
-            Label newTodo = new Label();
-            newTodo.Text = InputField.Text;
-            Console.WriteLine(InputField.Text);
-            ToDoList.Children.Add(newTodo);
-            InputField.Text = "";
-        }
     }
 }
